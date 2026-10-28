@@ -36,6 +36,14 @@ fun sumar2(a: Int, b: Int): Int = a+b
 fun esPar(a:Int):Boolean = a % 2 == 0
 
 fun promedio(a: Double, b: Double, c: Double): Double = (a+b+c)/3
+//Operacion de orden superior.
+fun operar(a: Int, b: Int, operacion:(Int,Int)->Int):Int{
+    return operacion(a,b)
+}
+
+//Materia prima para usar mi funcion operar
+fun sumar3(a: Int, b: Int): Int = a+b
+fun multiplicar3 (a: Int, b: Int): Int = a*b
 
 class Calculadora{
     //funciones
@@ -43,9 +51,9 @@ class Calculadora{
 }
 class Persona(
     var nombre: String,
-    var edad: Int
-){
-//funciones
+    var edad: Int){
+    //funciones
+
 }
 fun main() {
     saludar()
@@ -68,7 +76,11 @@ fun main() {
 
     //Cuando lo metodos estan dentro de la clase se crea instancias.
     val calculadora = Calculadora()
-    calculadora.restar(8,7)
+    val resta2 = calculadora.restar(8,7)
+    println(resta2)
     val persona = Persona("Maria",8)
-
+    val res1 = operar(4,5,::sumar3)
+    println(res1)
+    val re2 = operar(2,5,::multiplicar3)
+    println(re2)
 }
